@@ -51,4 +51,18 @@ class TypedArrayObject extends \ArrayObject
             throw new \InvalidArgumentException('The given value was not of type ' . $this->type);
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function exchangeArray($input)
+    {
+        foreach ($input as $item) {
+            if (!$this->isValid($value)) {
+                throw new \InvalidArgumentException('The given value was not of type ' . $this->type);
+            }
+        }
+        
+        parent::exchangeArray($input);
+    }
 }
