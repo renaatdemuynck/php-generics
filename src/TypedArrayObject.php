@@ -60,7 +60,7 @@ class TypedArrayObject extends \ArrayObject
     public function exchangeArray($input)
     {
         foreach ($input as $item) {
-            if (!$this->isValid($value)) {
+            if (!$this->isValid($item)) {
                 throw new \InvalidArgumentException('The given value was not of type ' . $this->type);
             }
         }
