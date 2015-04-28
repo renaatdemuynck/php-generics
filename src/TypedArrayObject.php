@@ -11,8 +11,10 @@ class TypedArrayObject extends \ArrayObject
      * @param string $type The type of elements the array can contain.
      *                     Can be any of the primitive types or a class name.
      */
-    public function __construct($type, $array = array())
+    public function __construct($type, $input = array())
     {
+        parent::__construct($input);
+        
         $this->type = $type;
     }
 
