@@ -43,25 +43,29 @@ class TypedArrayObject extends \ArrayObject
     /**
      * {@inheritDoc}
      *
-     * @throws \InvalidArgumentException If the given value was not of the specified type
+     * @throws InvalidArgumentException If the given value is not of the specified type
      */
     public function offsetSet($offset, $value)
     {
         if ($this->isValid($value)) {
             parent::offsetSet($offset, $value);
         } else {
-            throw new \InvalidArgumentException('The given value was not of type ' . $this->type);
+            throw new \InvalidArgumentException('The given value is not of type ' . $this->type);
         }
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @throws InvalidArgumentException If the given array contains a value that is not of the specified type
      */
     public function exchangeArray($input)
     {
         foreach ($input as $item) {
             if (!$this->isValid($item)) {
-                throw new \InvalidArgumentException('The given value was not of type ' . $this->type);
+                throw new \InvalidArgumentException(
+                    'The given array contains a value that is not of type ' . $this->type
+                );
             }
         }
         
