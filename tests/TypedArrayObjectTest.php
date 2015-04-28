@@ -5,7 +5,7 @@ use RDM\Generics\TypedArrayObject;
 class TypedArrayObjectTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Check if an array of type integer contains only integers
+     * Check if an array object of type integer contains only integers
      */
     public function testIntArray()
     {
@@ -19,7 +19,7 @@ class TypedArrayObjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Try to add a string to an array of type integer
+     * Try to add a string to an array object of type integer
      */
     public function testAddStringToIntArray()
     {
@@ -27,5 +27,29 @@ class TypedArrayObjectTest extends \PHPUnit_Framework_TestCase
     
         $this->setExpectedException('InvalidArgumentException');
         $intArray[] = '1';
+    }
+    
+    /**
+     * Try to append a string to an array object of type integer
+     */
+    public function testAppendStringToIntArray()
+    {
+        $intArray = new TypedArrayObject('int');
+    
+        $this->setExpectedException('InvalidArgumentException');
+        $intArray->append('1');
+    }
+    
+    /**
+     * Try to exchange an array containing a string to an array object of type integer
+     */
+    public function testExchangeArrayWithIntArray()
+    {
+        $intArray = new TypedArrayObject('int');
+        
+        $newArray = array(1, 2, 'three');
+    
+        $this->setExpectedException('InvalidArgumentException');
+        $intArray->exchangeArray($newArray);
     }
 }
