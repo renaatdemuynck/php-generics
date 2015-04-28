@@ -8,6 +8,9 @@
             "email": "renaat.demuynck@gmail.com"
         }
     ],
+    "require-dev": {
+        "phpunit/phpunit": "~4.6"
+    },
     "autoload": {
         "psr-4": {
             "RDM\\Generics\\": "src/"
