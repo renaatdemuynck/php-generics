@@ -1,0 +1,16 @@
+{
+    "name": "renaatdemuynck/php-generics",
+    "description": "Generics for PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renaat De Muynck",
+            "email": "renaat.demuynck@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RDM\\Generics\\": "src/"
+        }
+    }
+}
